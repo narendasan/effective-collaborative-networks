@@ -31,6 +31,25 @@ class: center, middle
       - Could help introduce formalism into the design of complex collaborative networks
 ---
 ## Collaborative Networks
+
+Networks where nodes in the network work together or symbiotically to accomplish goals
+
+_"A collaborative network (CN) is constituted by a variety of entities (e.g.,organizations 
+and people) that are largely autonomous, geographically distributed, and heterogeneous in
+terms of their: operating environment, culture, social capital, and goals. Nevertheless 
+these entities collaborate to better achieve common or compatible goals, and whose 
+interactions are supported by computer network. "_ - Camarinha-Matos et. al 2004 
+
+Examples:
+      - Open Source Projects
+      - Polymath project
+      - Organizations
+      - Swarm Systems 
+      - Some transportation networks (e.g. airline partnerships like the Star Alliance)
+      - Supply Chains 
+      - By extension: Neural Nets, distributed systems etc.
+
+Designing efficient collaborative networks is a really important problem 
 ---
 ## Organizational Hierarchies
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/US_State_Department_organizational_chart_Nov_2016.jpg/800px-US_State_Department_organizational_chart_Nov_2016.jpg" style="  margin-left: 15%;margin-right: auto;" width="65%"/>
@@ -44,7 +63,7 @@ class: center, middle
 Directed Acyclic (in the simple case) Computational Graphs 
       
 $$y = w_5^T F(w_4, b_4, F(...)) + b_5$$
-$$\text{where } F(w, b, x) = relu(w^Tx +b) \text{ and } relu(x) = max[0,x]$$  
+$$\text{where } F(w, b, x) = relu(w^Tx +b) \text{ and } relu(x) = max(0,x)$$  
 
 
 - Weighting of various inputs aggregated and passed forward if passes threshold
@@ -60,7 +79,7 @@ $$\text{where } F(w, b, x) = relu(w^Tx +b) \text{ and } relu(x) = max[0,x]$$
 class: center, middle
 ## Evaluating Bottlenecking and Centrality as Possible Design Metrics 
 Given some evidence in the literature and also the intuition that many apply when designing collaborative systems we seek to 
-evaluate if late stage bottlenecks are a signifier of effective collaborative networks
+evaluate if bottlenecks are a signifier of effective collaborative networks.
 ---
 ## Related Work
 
@@ -72,6 +91,10 @@ evaluate if late stage bottlenecks are a signifier of effective collaborative ne
       - Finds that Artificial Neural Nets for text analysis will naturally centralize particular roles
       in the network (e.g. sentiment analysis is handled by 1 node) and those nodes have a large impact 
       on the output of the network
+
+#### Guimariles et. al, 1995
+      - Found similar role centralization in small neural nets used for predicting chemical properties
+      of organic compounds
 ---
 ## Our Approach
 
@@ -122,15 +145,33 @@ as a baseline effective network to compare against
 
 - In/Out Degree Distribution (as a comparison metric)
 
-- All Pairs Max Flow (visual understanding of flow)
----
-## Bottlenecks and Centrality  
+- All(In/Out) Pairs Max Flow (visual understanding of flow)
 ---
 ## Betweenness Centrality 
+
+$$
+x_i = \sum_p n_p^i
+$$
+Number of geodesic paths through a node i
 ---
 ## PageRank Centrality
+$$
+\boldsymbol x = \boldsymbol D(\boldsymbol D - \alpha \boldsymbol A)^{-1} \boldsymbol 1
+$$
+
+$$
+\boldsymbol D_{ii} = max(1,k_i)
+$$
+
+Centrality derived from neighbors proportional to their out-degree
+
 ---
-## All Pairs Max Flow
+## All (In/Out) Pairs Max Flow
+
+-  All pairs max flow: maximum flow value between every pair of nodes in a
+directed graph on n nodes, m edges, and capacities in the range
+
+- Augmented for neural nets to only evaluate inputs and outputs pairs
 ---
 class: center, middle
 # Results 
@@ -163,20 +204,22 @@ background-image: url(https://media.githubusercontent.com/media/narendasan/effec
 ## What Did We Learn
 - The betweenness centrality distribution is a indeed a signifier of good collaborative networks 
 
-      - But is more nuanced than a simple rule and not what we were expecting
+      - Bud not in the way we were expecting
 
       - Both the airport network and the narrowing ANN feature few true bottlenecks (less variance in the betweenness centrality)
 
       - Other networks feature more bottlenecks and they are "less collaborative" networks
+
+      - However this still may be consistent with the role centrality found in Radford et. al, and 
 
 -  All pairs max flow comparison between ANNs show that given early width in the network encourages the extraction of more features and 
 leads to the network better utilizing the full network width better later in the network
 
       - Smaller early layers lead flow being concentrated layer in a percentage of the width provided 
 
-      - Confirms the intuition, start wide and narrow, but not for the reasons people think
+      - Confirms the intuition in designing ANNs, start wide and narrow, but not for the reasons people think
 
-      - May show that flow tends to centralize and therefore ANNs should be forced try and use the full width earlier  
+      - May show that flow tends to centralize and therefore ANNs should be wider earlier to leave enough width at the end  
 ---
 ## Issues in Conducting This Work
 
@@ -193,16 +236,20 @@ a reasonable network to compare against
 
 - Run analysis on natural neural nets
 
+- Since we see narrowing in all of the neural nets, running an experiment where sufficient width is provided early and kept constant and see how the flow 
+
+- Develop/Apply a general notion of role/role centralization for networks as another metric to evaluate
+
 - Develop/Apply a notion of effectiveness for Organizational Networks to compare different organization hierarchies
 in this context
 
-      - Similarly for other collaborative networks: Academic Collaboration, Swarm Systems etc.  
+      - Similarly for other collaborative networks: academic collaboration, open source governance, swarm systems etc.  
 
 - Results warrant further study
       -  There is the potential to add formalism to collaborative network design
 </textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
     <script type="text/javascript">
       var slideshow = remark.create({ratio: '16:9'});
 

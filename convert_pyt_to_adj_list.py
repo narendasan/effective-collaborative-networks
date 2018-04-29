@@ -22,4 +22,4 @@ def convert_sd_to_adj(name, state_dict):
                 edges.append((in_dim, out_dim, edge_weights[i][j]))
         in_dim_start = in_dim_start + edge_weights.shape[0]
                 
-    open(name + '.adj', 'w').write('\n'.join('%s %s %s' % x for x in edges))
+    open("data/ann/" + name + '.adj', 'w').write('\n'.join('%s %s %s' % x for x in edges))

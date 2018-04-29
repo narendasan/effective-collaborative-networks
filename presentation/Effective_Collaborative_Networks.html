@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Effective Collaborative Networks</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      /* Slideshow styles */
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+ 
+## Evaluation of Network Bottlenecking and Centrality as Metrics for Effective Collaborative Networks
+#### Naren Sivagnanadasan and Tanishq Dubey
+###### ECE 498LV - Unviersity of Illinois Urbana-Champaign
+---
+## Motivation 
+- Some of the most interesting networks are those where nodes work togther to accomplish a higher goal
+
+- Designing such networks is difficult and typically are designed with intuition rather than theory 
+---
+## 
+---
+## Collaborative Networks
+---
+## Artifical Neural Networks
+
+Directed Acyclic (in the simple case) Computational Graphs 
+      
+$$y = w_5^T F(w_4, b_4, F(...)) + b_5$$
+$$\text{where } F(w, b, x) = relu(w^Tx +b) \text{ and } relu(x) = max[0,x]$$  
+
+
+- Weighting of various inputs aggrigated and passed forward if passes threshold
+
+- The nodes work together each focused on specific details to make an inference
+
+- Trained via Gradient Decent (though a Non Convex)
+
+- Applied to Function Approximation, Pattern Recognition and more
+
+- Architecture design heaviely dependent on intuition
+---
+## Cursory Performace Evaluation of MLPs
+- Evaluating 3 Multi-Layer Perceptrons with roughly the same amount of nodes (roughly 3000)
+      - Descrepencies in number of nodes due to trying to preserve the rate funneling and to make math work
+
+- Narrowing Network
+      - 784 -> 800 -> 600 -> 400 -> 200 -> 10
+      - Accuracy: 85% on MNIST
+
+- Constant Width Network
+      - 784 -> 500 -> 500 -> 500 -> 500 -> 10
+      - Accuracy: 58% on MNIST
+
+- Widening Network
+      - 784 -> 200 -> 400 -> 600 -> 800 -> 10
+      - Accuracy: 61% on MNIST
+---
+## Related Work
+---
+## Methods 
+
+- Evaluation of three classes of Networks 
+      - ANNs 
+            - 3 5-Layer MLPs for Binary to Decimal Conversion Task
+      - Naturally-Occuring Networks 
+            - Ecological Network 
+            - Airport Network
+            - Mouse Visual Cortex
+      - Random Networks 
+            - Poisson Random Network
+---
+## ANNs Analysis 
+- 3 Networks of near similar number nodes and edges:
+      - Narrowing 
+            - Aggressive narrowing of hidden layers the network width 
+            - 10 -> 25 -> 20 -> 15-> 10 -> 1
+      - Constant Size
+            - Hidden layer width remains constant 
+            - 10 -> 18 -> 18 -> 18 -> 18 -> 1
+      - Widening
+            - Hidden Layrs begin narrow and widen 
+            - 10 -> 10 -> 15 -> 20 -> 25 -> 1
+---
+## Bottleneck Flow 
+---
+## Centrality 
+---
+## All Pairs Max Flow
+---
+class: center, middle
+# Results 
+---
+## Implications of Results 
+---
+## Issues in Conducting This Work
+
+- Due to computational limitations, evaluation of full scale ANNs were not possible 
+      - Small networks (MLP with 90% on MNIST) has over 1500 nodes and 420000 edges
+---
+## Future Work
+- Evaluate the flow and centrality on full scale networks
+      - Would involve implementing some sort of parallel evaluation (i.e. CUDA) to make it more feasible 
+---
+# Display and Inline
+ 
+1. This is an inline integral: `\(\int_a^bf(x)dx\)`
+2. More `\(x={a \over b}\)` formulae.
+ 
+Display formula:
+
+$$e^{i\pi} + 1 = 0$$
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+
+      // Setup MathJax
+      MathJax.Hub.Config({
+          tex2jax: {
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      });
+
+      MathJax.Hub.Configured();
+    </script>
+  </body>
+</html>

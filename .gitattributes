@@ -5,3 +5,4 @@ narrow_mlp.adj filter=lfs diff=lfs merge=lfs -text
 nc_mlp.adj filter=lfs diff=lfs merge=lfs -text
 wc_mlp.adj filter=lfs diff=lfs merge=lfs -text
 *.adj filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text

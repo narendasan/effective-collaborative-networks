@@ -73,6 +73,15 @@ $$\text{where } F(w, b, x) = relu(w^Tx +b) \text{ and } relu(x) = max[0,x]$$
       - Random Networks 
             - Poisson Random Network
 ---
+## Bottleneck Flow 
+---
+## Centrality 
+---
+## All Pairs Max Flow
+---
+class: center, middle
+# Results 
+---
 ## ANNs Analysis 
 - 3 Networks of near similar number nodes and edges:
       - Narrowing 
@@ -85,16 +94,17 @@ $$\text{where } F(w, b, x) = relu(w^Tx +b) \text{ and } relu(x) = max[0,x]$$
             - Hidden Layrs begin narrow and widen 
             - 10 -> 10 -> 15 -> 20 -> 25 -> 1
 ---
-## Bottleneck Flow 
+background-image: url(https://media.githubusercontent.com/media/narendasan/effective-collaborative-networks/master/presentation/img/narrow/narrow.png)
 ---
-## Centrality 
+background-image: url(https://media.githubusercontent.com/media/narendasan/effective-collaborative-networks/master/presentation/img/constant/constant.png)
 ---
-## All Pairs Max Flow
+background-image: url(https://media.githubusercontent.com/media/narendasan/effective-collaborative-networks/master/presentation/img/wider/wider.png)
 ---
-class: center, middle
-# Results 
+background-image: url(https://media.githubusercontent.com/media/narendasan/effective-collaborative-networks/master/presentation/img/eco/eco.png)
 ---
-## Implications of Results 
+background-image: url(https://media.githubusercontent.com/media/narendasan/effective-collaborative-networks/master/presentation/img/airport/airport.png)
+---
+background-image: url(https://media.githubusercontent.com/media/narendasan/effective-collaborative-networks/master/presentation/img/random/random.png)
 ---
 ## Issues in Conducting This Work
 
@@ -104,21 +114,12 @@ class: center, middle
 ## Future Work
 - Evaluate the flow and centrality on full scale networks
       - Would involve implementing some sort of parallel evaluation (i.e. CUDA) to make it more feasible 
----
-# Display and Inline
- 
-1. This is an inline integral: `\(\int_a^bf(x)dx\)`
-2. More `\(x={a \over b}\)` formulae.
- 
-Display formula:
 
-$$e^{i\pi} + 1 = 0$$
-
-    </textarea>
+</textarea>
     <script src="http://gnab.github.io/remark/downloads/remark-latest.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured" type="text/javascript"></script>
     <script type="text/javascript">
-      var slideshow = remark.create();
+      var slideshow = remark.create({ratio: '16:9'});
 
       // Setup MathJax
       MathJax.Hub.Config({
